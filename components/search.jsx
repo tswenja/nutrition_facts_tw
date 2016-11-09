@@ -9,8 +9,6 @@ class FoodSearch extends React.Component {
     var results = []
     if (this.props.foodModel) {
       var keyword = this.props.location.query.keyword
-      //results = jsonQuery(`foods[**][*name~/${keyword}/]|foods[**][*nickName~/${keyword}/]|food[**][*enName~/${keyword}/]`,
-      //  {data: {foods: this.props.foodModel.all()}, allowRegexp: true}).value
       results = jsonQuery(
         `foods[**][*:contains(${keyword})]`,
         {
@@ -26,7 +24,7 @@ class FoodSearch extends React.Component {
           <form id="searchForm" onSubmit={(event)=> {
             event.preventDefault()
             var keywordNode = event.target.keyword
-            this.context.router.push(`?keyword=${keywordNode.value}`)
+            this.context.router.push(`${this.context.router.routes[0].path}?keyword=${keywordNode.value}`)
             keywordNode.blur()
           }}>
             搜尋：

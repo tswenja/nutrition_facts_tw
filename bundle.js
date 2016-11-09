@@ -357,8 +357,6 @@ class FoodSearch extends React.Component {
     var results = [];
     if (this.props.foodModel) {
       var keyword = this.props.location.query.keyword;
-      //results = jsonQuery(`foods[**][*name~/${keyword}/]|foods[**][*nickName~/${keyword}/]|food[**][*enName~/${keyword}/]`,
-      //  {data: {foods: this.props.foodModel.all()}, allowRegexp: true}).value
       results = jsonQuery(`foods[**][*:contains(${ keyword })]`, {
         data: { foods: this.props.foodModel.all() },
         locals: { contains: function (input, keyword) {
@@ -377,7 +375,7 @@ class FoodSearch extends React.Component {
           { id: 'searchForm', onSubmit: event => {
               event.preventDefault();
               var keywordNode = event.target.keyword;
-              this.context.router.push(`?keyword=${ keywordNode.value }`);
+              this.context.router.push(`${ this.context.router.routes[0].path }?keyword=${ keywordNode.value }`);
               keywordNode.blur();
             } },
           '\u641C\u5C0B\uFF1A',
@@ -28398,7 +28396,7 @@ var Search = require('./components/search.jsx');
 var FoodDetails = require('./components/food_details.jsx');
 
 const routes = {
-  path: '/nutrition_facts_tw/',
+  path: '/nutrition_facts_tw',
   component: DatasourceTW,
   indexRoute: { component: Search },
   childRoutes: [{ path: 'foods/:uniNumber', component: FoodDetails }]
