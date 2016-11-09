@@ -86,7 +86,7 @@ class FoodSearch extends React.Component {
             return (
               <li key={result.uniNumber}>
                 <div className="result">
-                  <Link to={`foods/${result.uniNumber}`} className="nude_link result_link">
+                  <Link to={`${this.context.router.routes[0].path}/foods/${result.uniNumber}`} className="nude_link result_link">
                     <div className="result_title">
                       {result.name}
                       <span className="result_title_note">100g</span>

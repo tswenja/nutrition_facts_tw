@@ -495,7 +495,7 @@ class FoodSearch extends React.Component {
               { className: 'result' },
               React.createElement(
                 Link,
-                { to: `foods/${ result.uniNumber }`, className: 'nude_link result_link' },
+                { to: `${ this.context.router.routes[0].path }/foods/${ result.uniNumber }`, className: 'nude_link result_link' },
                 React.createElement(
                   'div',
                   { className: 'result_title' },
