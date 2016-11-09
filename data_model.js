@@ -23,7 +23,7 @@ var FoodDB = {
     var columnIndex = { category:0, dataType:1, uniNumber:2, name:3, nickName:4, enName:5, contents:6, deprecateRate:7,
       nutritionCategory:8, nutritionName:9, unit:10, amountPer100g:11, sampleCount:12, standardDeviation:13, amountPerUnit:14, weightPerUnit:15, amountPerUnitWeight:16 }
     var foods={};
-    Papa.parse("http://localhost:8000/data/data.csv", {
+    Papa.parse("/nutrition_facts_tw/data/data.csv", {
       delimiter: "\t",
       download: true,
       complete: function(results) {

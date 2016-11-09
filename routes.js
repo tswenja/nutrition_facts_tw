@@ -9,7 +9,7 @@ var Search = require('./components/search.jsx')
 var FoodDetails = require('./components/food_details.jsx')
 
 const routes = {
-  path: '/',
+  path: '/nutrition_facts_tw/',
   component: DatasourceTW,
   indexRoute: { component: Search },
   childRoutes:[
