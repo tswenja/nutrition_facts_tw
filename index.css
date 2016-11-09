@@ -1,0 +1,298 @@
+* {
+  text-size-adjust: none;
+}
+
+body {
+  background-color: #4A4A4A;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  font-family: "Helvetica Neue","Heiti TC";
+  color: #4c4c4c;
+}
+
+.nude_link {
+  color: inherit;
+  text-decoration: none;
+}
+.nude_input_text {
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.svg_calories_red {
+  fill: #DE4B11;
+}
+.background_calories_red {
+  background-color: #DE4B11;
+}
+.svg_protein_yellow {
+  fill: #F8E71C;
+}
+.background_protein_yellow {
+  background-color: #F8E71C;
+}
+.svg_fiber_green {
+  fill: #6AB812;
+}
+.background_fiber_green {
+  background-color: #6AB812;
+}
+.svg_fat_white {
+  fill: #FFFFFF;
+}
+.background_fat_white {
+  background-color: #FFFFFF;
+}
+.svg_carb_black {
+  fill: #000000;
+}
+.background_carb_black {
+  background-color: #000000;
+}
+
+.data_source {
+  width: 97%;
+  max-width: 814px;
+  margin: auto;
+  margin-top: 15px;
+  text-align: right;
+  color: #9B9B9B;
+}
+  .data_source_link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .data_source_link:hover {
+    text-decoration: underline;
+  }
+
+.nutrition_icon_calories,
+.nutrition_icon_protein,
+.nutrition_icon_fat, .nutrition_icon_fat_with_border,
+.nutrition_icon_carb,
+.nutrition_icon_fiber {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-family: "Helvetica";
+  color: white;
+  line-height: 15px;
+  text-align: center;
+}
+  .nutrition_icon_calories::before,
+  .nutrition_icon_protein::before,
+  .nutrition_icon_fat::before, .nutrition_icon_fat_with_border::before,
+  .nutrition_icon_carb::before,
+  .nutrition_icon_fiber::before {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transform: scale(0.9);
+  }
+
+.nutrition_icon_calories { background-color: #DE4B11; }
+  .nutrition_icon_calories::before {
+    content: "熱";
+  }
+
+.nutrition_icon_protein { background-color: #F8E71C; }
+  .nutrition_icon_protein::before {
+    content: "蛋";
+    text-shadow: 0 0 1px rgba(0,0,0,0.37);
+  }
+
+.nutrition_icon_fat, .nutrition_icon_fat_with_border { background-color: white; }
+  .nutrition_icon_fat::before, .nutrition_icon_fat_with_border::before {
+    content: "脂";
+    color: black;
+  }
+  .nutrition_icon_fat_with_border { border: 1px solid rgba(0,0,0,0.5); }
+
+.nutrition_icon_carb { background-color: black; }
+  .nutrition_icon_carb::before {
+    content: "碳";
+  }
+
+.nutrition_icon_fiber { background-color: #6AB812; }
+  .nutrition_icon_fiber::before {
+    content: "纖";
+  }
+
+/* index page
+ */
+
+.main_container {
+  background-color: #E5E6DF;
+  padding: 2px 0;
+  width: 97%;
+  max-width: 814px;
+  margin: auto;
+  margin-top: 88px;
+}
+
+.search_bar {
+  background-color: #FAF8F5;
+  height: 60px;
+  border-bottom: 0.5px solid rgba(128,128,128,0.35);
+  line-height: 60px;
+  padding-left: 16px;
+}
+
+.sort_pannel {
+  margin: 24px 16px;
+}
+  .sort_item, .sort_item_separator {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 22px;
+    text-align: center;
+    margin-right: 20px;
+    font-size: 13px;
+  }
+  .sort_item_first { margin-left: 30px; }
+  .sort_inspector {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+    .sort_inspector_priority {
+      position: absolute;
+      top: 4px; left: 0;
+      width: 100%;
+      line-height: 11px;
+      color: white;
+      font-family: "Arial Rounded MT Bold";
+      font-size: 12px;
+    }
+    .sort_inspector_priority_text_adjust {
+      display: inline-block;
+      transform: scale(0.8);
+    }
+    .sort_inspector_square {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      margin-top: 5px;
+    }
+
+.result {
+  margin: 80px 50px;
+}
+  .result_link {
+    display: block;
+  }
+  .result_title {
+    font-size: 1.4em;
+    font-family: "Songti TC";
+    color: inherit;
+    text-decoration: none;
+  }
+  .result_title_note {
+    margin-left: 10px;
+    font-size: 0.618em;
+    font-family: "Verdana";
+    color: #808080;
+  }
+  .result_item, .result_item_separator {
+    display: inline-block;
+    position: relative;
+    padding-top: 40px;
+    font-family: "Georgia";
+    font-size: 1.267em;
+  }
+    .result_item_indicator {
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      text-align: center;
+    }
+    .result_item_separator {
+      margin: 0 30px;
+    }
+
+
+/* food page
+ */
+
+.food_container {
+  background-color: #FAF8F5;
+  padding: 36 0px;
+}
+.food_title {
+  padding: 0 50px;
+  font-size: 25px;
+  font-family: "Songti TC","Georgia";
+}
+  .food_title_en {
+    font-size: 0.92em;
+    margin-left: 0.64em;
+  }
+
+.food_description {
+  margin: 12px 0;
+  padding: 0 50px;
+}
+  .food_description_head {
+    margin-top: 24px;
+  }
+
+.nutrition_facts_table {
+  margin-top: 44px;
+  font: inherit;
+  font-weight: 300;
+  color: inherit;
+}
+  .nutrition_facts_header, .nutrition_facts_row {
+    padding: 0 50px;
+    display: flex;
+    display: -webkit-flex;
+  }
+  .nutrition_facts_header {
+    font-size: 0.87em;
+  }
+  .nutrition_facts_header_separator {
+    margin: 16px 0px 12px;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #CCCCCC;
+  }
+  .nutrition_facts_row {
+    height: 42px;
+    line-height: 42px;
+  }
+  .nutrition_facts_row:hover {
+    background-color: #E5E6DF;
+  }
+  .nutrition_facts_cell_amount, .nutrition_facts_cell_ratio { padding: 0 8px; }
+  .nutrition_facts_cell_amount {
+    width: 84%;
+  }
+  .nutrition_facts_cell_ratio {
+    width: 16%;
+    text-align: center;
+  }
+    .nutrition_facts_item_icon {
+      display: inline-block;
+      width: 15px;
+      margin-right: 12px;
+    }
+    .nutrition_facts_item_name {
+      font-size: 1.13em;
+      font-weight: 800;
+    }
+    .nutrition_facts_subitem_name {
+      font-size: 1.07em;
+      font-weight: 300;
+      padding-left: 2.5em;
+    }
+    .nutrition_facts_item_number { padding-left: 16px; }
+    .nutrition_facts_item_icon, .nutrition_facts_item_name, .nutrition_facts_subitem_name, .nutrition_facts_item_number { vertical-align: middle; }
+
