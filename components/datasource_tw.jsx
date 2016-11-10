@@ -13,10 +13,15 @@ module.exports = class App extends React.Component {
     });
   }
   render() {
+    var contents = (
+      (this.state.ready) ?
+      React.cloneElement(this.props.children, {foodModel: this.foodModel}) :
+      <div className="placeholder_loading"></div>
+    )
     return (
       <div>
         <div className="main_container">
-          {React.cloneElement(this.props.children, {foodModel: this.foodModel})}
+          {contents}
         </div>
 
         <div className="data_source">

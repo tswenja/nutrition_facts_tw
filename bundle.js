@@ -14,13 +14,14 @@ module.exports = class App extends React.Component {
     });
   }
   render() {
+    var contents = this.state.ready ? React.cloneElement(this.props.children, { foodModel: this.foodModel }) : React.createElement('div', { className: 'placeholder_loading' });
     return React.createElement(
       'div',
       null,
       React.createElement(
         'div',
         { className: 'main_container' },
-        React.cloneElement(this.props.children, { foodModel: this.foodModel })
+        contents
       ),
       React.createElement(
         'div',
@@ -47,11 +48,7 @@ module.exports = class FoodDetails extends React.Component {
       obj = this.props.foodModel.get(this.props.params.uniNumber);
     }
     if (!obj) {
-      return React.createElement(
-        'div',
-        null,
-        'Not Found'
-      );
+      return React.createElement('noscript', null);
     } else {
       return React.createElement(
         'main',

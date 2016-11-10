@@ -8,7 +8,7 @@ module.exports = class FoodDetails extends React.Component {
       obj = this.props.foodModel.get(this.props.params.uniNumber)
     }
     if (!obj) {
-      return <div>Not Found</div>
+      return <noscript />
     } else {
       return (
         <main>
