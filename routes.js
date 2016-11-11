@@ -2,7 +2,7 @@
 var React = require('react');
 var FoodDB = require('../data_model').FoodDB;
 
-module.exports = class App extends React.Component {
+module.exports = class DatasourceTW extends React.Component {
   constructor() {
     super();
     this.state = { ready: false };
@@ -349,7 +349,7 @@ var Link = require('react-router').Link;
 require('round10').polyfill();
 var jsonQuery = require('json-query');
 
-class FoodSearch extends React.Component {
+class Search extends React.Component {
   render() {
     var results = null;
     if (this.props.foodModel && this.props.params.keyword) {
@@ -498,7 +498,7 @@ class FoodSearch extends React.Component {
     );
   }
 }
-FoodSearch.contextTypes = {
+Search.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
 
@@ -601,7 +601,7 @@ class Result extends React.Component {
   }
 }
 
-module.exports = FoodSearch;
+module.exports = Search;
 
 },{"json-query":5,"react":235,"react-router":37,"round10":236}],4:[function(require,module,exports){
 var Papa = require('papaparse');

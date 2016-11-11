@@ -1,7 +1,7 @@
 var React = require('react')
 var FoodDB = require('../data_model').FoodDB
 
-module.exports = class App extends React.Component {
+module.exports = class DatasourceTW extends React.Component {
   constructor() {
     super()
     this.state = { ready: false }
