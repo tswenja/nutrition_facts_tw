@@ -351,8 +351,8 @@ var jsonQuery = require('json-query');
 
 class FoodSearch extends React.Component {
   render() {
-    var results = [];
-    if (this.props.foodModel) {
+    var results = null;
+    if (this.props.foodModel && this.props.params.keyword) {
       var keyword = this.props.params.keyword;
       results = jsonQuery(`foods[**][*:contains(${ keyword })]`, {
         data: { foods: this.props.foodModel.all() },
@@ -483,102 +483,15 @@ class FoodSearch extends React.Component {
       React.createElement(
         'ul',
         null,
-        results.map(result => {
+        results == null ? [] : results.length == 0 ? React.createElement(
+          'li',
+          { style: { padding: '40px', textAlign: 'center' } },
+          `很抱歉，這裡沒有「${ this.props.params.keyword }」的資料`
+        ) : results.map(result => {
           return React.createElement(
             'li',
             { key: result.uniNumber },
-            React.createElement(
-              'div',
-              { className: 'result' },
-              React.createElement(
-                Link,
-                { to: `${ this.context.router.routes[0].path }/foods/${ result.uniNumber }`, className: 'nude_link result_link' },
-                React.createElement(
-                  'div',
-                  { className: 'result_title' },
-                  result.name,
-                  React.createElement(
-                    'span',
-                    { className: 'result_title_note' },
-                    '100g'
-                  )
-                ),
-                React.createElement(
-                  'div',
-                  null,
-                  React.createElement(
-                    'span',
-                    { className: 'result_item' },
-                    React.createElement(
-                      'span',
-                      { className: 'result_item_indicator' },
-                      React.createElement('span', { className: 'nutrition_icon_calories' })
-                    ),
-                    Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item_separator' },
-                    ':'
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item' },
-                    React.createElement(
-                      'span',
-                      { className: 'result_item_indicator' },
-                      React.createElement('span', { className: 'nutrition_icon_protein' })
-                    ),
-                    Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item_separator' },
-                    ':'
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item' },
-                    React.createElement(
-                      'span',
-                      { className: 'result_item_indicator' },
-                      React.createElement('span', { className: 'nutrition_icon_fat' })
-                    ),
-                    Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item_separator' },
-                    ':'
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item' },
-                    React.createElement(
-                      'span',
-                      { className: 'result_item_indicator' },
-                      React.createElement('span', { className: 'nutrition_icon_carb' })
-                    ),
-                    Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item_separator' },
-                    ':'
-                  ),
-                  React.createElement(
-                    'span',
-                    { className: 'result_item' },
-                    React.createElement(
-                      'span',
-                      { className: 'result_item_indicator' },
-                      React.createElement('span', { className: 'nutrition_icon_fiber' })
-                    ),
-                    Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)
-                  )
-                )
-              )
-            )
+            React.createElement(Result, { result: result, rootPath: this.context.router.routes[0].path })
           );
         })
       )
@@ -588,6 +501,105 @@ class FoodSearch extends React.Component {
 FoodSearch.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
+
+class Result extends React.Component {
+  render() {
+    var result = this.props.result;
+    var rootPath = this.props.rootPath;
+    return React.createElement(
+      'div',
+      { className: 'result' },
+      React.createElement(
+        Link,
+        { to: `${ rootPath }/foods/${ result.uniNumber }`, className: 'nude_link result_link' },
+        React.createElement(
+          'div',
+          { className: 'result_title' },
+          result.name,
+          React.createElement(
+            'span',
+            { className: 'result_title_note' },
+            '100g'
+          )
+        ),
+        React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'span',
+            { className: 'result_item' },
+            React.createElement(
+              'span',
+              { className: 'result_item_indicator' },
+              React.createElement('span', { className: 'nutrition_icon_calories' })
+            ),
+            Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item_separator' },
+            ':'
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item' },
+            React.createElement(
+              'span',
+              { className: 'result_item_indicator' },
+              React.createElement('span', { className: 'nutrition_icon_protein' })
+            ),
+            Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item_separator' },
+            ':'
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item' },
+            React.createElement(
+              'span',
+              { className: 'result_item_indicator' },
+              React.createElement('span', { className: 'nutrition_icon_fat' })
+            ),
+            Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item_separator' },
+            ':'
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item' },
+            React.createElement(
+              'span',
+              { className: 'result_item_indicator' },
+              React.createElement('span', { className: 'nutrition_icon_carb' })
+            ),
+            Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item_separator' },
+            ':'
+          ),
+          React.createElement(
+            'span',
+            { className: 'result_item' },
+            React.createElement(
+              'span',
+              { className: 'result_item_indicator' },
+              React.createElement('span', { className: 'nutrition_icon_fiber' })
+            ),
+            Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)
+          )
+        )
+      )
+    );
+  }
+}
 
 module.exports = FoodSearch;
 

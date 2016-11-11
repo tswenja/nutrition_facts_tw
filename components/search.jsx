@@ -6,8 +6,8 @@ var jsonQuery = require('json-query')
 
 class FoodSearch extends React.Component {
   render() {
-    var results = []
-    if (this.props.foodModel) {
+    var results = null
+    if (this.props.foodModel && this.props.params.keyword) {
       var keyword = this.props.params.keyword
       results = jsonQuery(
         `foods[**][*:contains(${keyword})]`,
@@ -82,58 +82,13 @@ class FoodSearch extends React.Component {
         </div>
 
         <ul>
-          {results.map((result)=> {
-            return (
-              <li key={result.uniNumber}>
-                <div className="result">
-                  <Link to={`${this.context.router.routes[0].path}/foods/${result.uniNumber}`} className="nude_link result_link">
-                    <div className="result_title">
-                      {result.name}
-                      <span className="result_title_note">100g</span>
-                    </div>
-
-                    <div>
-                      <span className="result_item">
-                        <span className="result_item_indicator">
-                          <span className="nutrition_icon_calories"></span>
-                        </span>
-                        {Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)}
-                      </span>
-                      <span className="result_item_separator">:</span>
-                      <span className="result_item">
-                        <span className="result_item_indicator">
-                          <span className="nutrition_icon_protein"></span>
-                        </span>
-                        {Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}
-                      </span>
-                      <span className="result_item_separator">:</span>
-                      <span className="result_item">
-                        <span className="result_item_indicator">
-                          <span className="nutrition_icon_fat"></span>
-                        </span>
-                        {Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}
-                      </span>
-                      <span className="result_item_separator">:</span>
-                      <span className="result_item">
-                        <span className="result_item_indicator">
-                          <span className="nutrition_icon_carb"></span>
-                        </span>
-                        {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}
-                      </span>
-                      <span className="result_item_separator">:</span>
-                      <span className="result_item">
-                        <span className="result_item_indicator">
-                          <span className="nutrition_icon_fiber"></span>
-                        </span>
-                        {Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)}
-                      </span>
-                    </div>
-                  </Link>
-                </div>
-              </li>
+          {(results == null) ?
+            [] : (
+              (results.length == 0) ?
+                <li style={{padding:'40px', textAlign:'center'}}>{`很抱歉，這裡沒有「${this.props.params.keyword}」的資料`}</li> :
+                results.map((result)=> { return <li key={result.uniNumber}><Result result={result} rootPath={this.context.router.routes[0].path}/></li> })
             )
-          })}
-
+          }
         </ul>
 
       </main>
@@ -142,6 +97,60 @@ class FoodSearch extends React.Component {
 }
 FoodSearch.contextTypes = {
   router: React.PropTypes.object.isRequired
+}
+
+class Result extends React.Component {
+  render() {
+    var result = this.props.result
+    var rootPath = this.props.rootPath
+    return (
+      <div className="result">
+        <Link to={`${rootPath}/foods/${result.uniNumber}`} className="nude_link result_link">
+          <div className="result_title">
+            {result.name}
+            <span className="result_title_note">100g</span>
+          </div>
+
+          <div>
+            <span className="result_item">
+              <span className="result_item_indicator">
+                <span className="nutrition_icon_calories"></span>
+              </span>
+              {Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)}
+            </span>
+            <span className="result_item_separator">:</span>
+            <span className="result_item">
+              <span className="result_item_indicator">
+                <span className="nutrition_icon_protein"></span>
+              </span>
+              {Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}
+            </span>
+            <span className="result_item_separator">:</span>
+            <span className="result_item">
+              <span className="result_item_indicator">
+                <span className="nutrition_icon_fat"></span>
+              </span>
+              {Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}
+            </span>
+            <span className="result_item_separator">:</span>
+            <span className="result_item">
+              <span className="result_item_indicator">
+                <span className="nutrition_icon_carb"></span>
+              </span>
+              {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}
+            </span>
+            <span className="result_item_separator">:</span>
+            <span className="result_item">
+              <span className="result_item_indicator">
+                <span className="nutrition_icon_fiber"></span>
+              </span>
+              {Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)}
+            </span>
+          </div>
+        </Link>
+      </div>
+    )
+  }
 }
 
 module.exports = FoodSearch
