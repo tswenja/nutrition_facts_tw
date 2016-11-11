@@ -8,7 +8,7 @@ class FoodSearch extends React.Component {
   render() {
     var results = []
     if (this.props.foodModel) {
-      var keyword = this.props.location.query.keyword
+      var keyword = this.props.params.keyword
       results = jsonQuery(
         `foods[**][*:contains(${keyword})]`,
         {
@@ -24,11 +24,11 @@ class FoodSearch extends React.Component {
           <form id="searchForm" onSubmit={(event)=> {
             event.preventDefault()
             var keywordNode = event.target.keyword
-            this.context.router.push(`${this.context.router.routes[0].path}?keyword=${keywordNode.value}`)
+            this.context.router.push(`${this.context.router.routes[0].path}/search/${keywordNode.value}`)
             keywordNode.blur()
           }}>
             搜尋：
-            <input type="text" name="keyword" className="nude_input_text" defaultValue={this.props.location.query.keyword} />
+            <input type="text" name="keyword" className="nude_input_text" defaultValue={this.props.params.keyword} />
           </form>
         </div>
 
