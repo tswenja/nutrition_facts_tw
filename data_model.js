@@ -15,7 +15,7 @@ class FoodModel {
   }
 }
 
-var FoodDB = {
+export const FoodDB = {
   init(onSuccess) {
     FoodDB.NutritionIndex={}
     const Nutritions = ["熱量","粗脂肪","脂肪酸S總量","脂肪酸P總量","脂肪酸M總量","總碳水化合物","膳食纖維","糖質總量","粗蛋白"]
@@ -69,5 +69,3 @@ var FoodDB = {
     })
   }
 }
-
-module.exports = { FoodDB }

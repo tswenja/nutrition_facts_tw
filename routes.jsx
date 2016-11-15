@@ -1,14 +1,10 @@
-var React = require('react')
-var render = require('react-dom').render
-var Router = require('react-router').Router
-var Route = require('react-router').Route
-var browserHistory = require('react-router').browserHistory
-var IndexRoute = require('react-router').IndexRoute
-var Redirect = require('react-router').Redirect
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-router'
 //components
-var DatasourceTW = require('./components/datasource_tw.jsx')
-var Search = require('./components/search.jsx')
-var FoodDetails = require('./components/food_details.jsx')
+import DatasourceTW from './components/datasource_tw.jsx'
+import Search from './components/search.jsx'
+import FoodDetails from './components/food_details.jsx'
 
 document.rootUrl = '/nutrition_facts_tw'
 

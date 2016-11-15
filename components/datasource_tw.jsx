@@ -1,7 +1,7 @@
-var React = require('react')
-var FoodDB = require('../data_model').FoodDB
+import React from 'react'
+import { FoodDB } from '../data_model'
 
-module.exports = class DatasourceTW extends React.Component {
+export default class DatasourceTW extends React.Component {
   constructor() {
     super()
     this.state = { ready: false }

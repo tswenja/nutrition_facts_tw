@@ -1,10 +1,9 @@
-var React = require('react')
-var Router = require('react-router')
-var Link = require('react-router').Link
+import React from 'react'
+import { Link } from 'react-router'
+import jsonQuery from 'json-query'
 require('round10').polyfill()
-var jsonQuery = require('json-query')
 
-class Search extends React.Component {
+export default class Search extends React.Component {
   render() {
     var results = null
     if (this.props.foodModel && this.props.params.keyword) {
@@ -152,5 +151,3 @@ class Result extends React.Component {
     )
   }
 }
-
-module.exports = Search

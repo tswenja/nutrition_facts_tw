@@ -1,7 +1,7 @@
-React = require('react')
+import React from 'react'
 require('round10').polyfill()
 
-module.exports = class FoodDetails extends React.Component {
+export default class FoodDetails extends React.Component {
   render() {
     var obj
     if (this.props.foodModel) {
