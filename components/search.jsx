@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router'
 import jsonQuery from 'json-query'
 require('round10').polyfill()
+// children compoents
+import SearchSorting from './search_sorting.jsx'
 
 export default class Search extends React.Component {
   render() {
