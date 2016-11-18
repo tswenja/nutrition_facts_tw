@@ -447,6 +447,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 require('round10').polyfill();
 // children compoents
 
+
+var SearchIconNote = function SearchIconNote(props) {
+  return _react2.default.createElement(
+    'span',
+    { className: 'search_icon_note' },
+    _react2.default.createElement('span', { className: '_icon background_' + props.name }),
+    _react2.default.createElement(
+      'span',
+      { className: '_value' },
+      props.value
+    )
+  );
+};
+
 var Search = function (_React$Component) {
   _inherits(Search, _React$Component);
 
@@ -491,104 +505,10 @@ var Search = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'sort_pannel' },
-          '\u6392\u5E8F\uFF1A',
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item sort_item_first' },
-            _react2.default.createElement(
-              'span',
-              { className: 'sort_inspector' },
-              _react2.default.createElement(
-                'svg',
-                { width: '20px', height: '14px', className: 'svg_calories_red' },
-                _react2.default.createElement('polygon', { id: 'sort_inspector', points: '9.5,0 10.5,0 19,13 18,14 2,14 1,13 ' })
-              ),
-              _react2.default.createElement(
-                'span',
-                { className: 'sort_inspector_priority' },
-                _react2.default.createElement(
-                  'font',
-                  { className: 'sort_inspector_priority_text_adjust' },
-                  '1'
-                )
-              )
-            ),
-            '\u71B1\u91CF'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item_separator' },
-            ':'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item' },
-            _react2.default.createElement(
-              'span',
-              { className: 'sort_inspector' },
-              _react2.default.createElement(
-                'svg',
-                { width: '20px', height: '14px', className: 'svg_protein_yellow' },
-                _react2.default.createElement('polygon', { id: 'sort_inspector', points: '9.5,0 10.5,0 19,13 18,14 2,14 1,13 ' })
-              ),
-              _react2.default.createElement(
-                'span',
-                { className: 'sort_inspector_priority' },
-                _react2.default.createElement(
-                  'font',
-                  { className: 'sort_inspector_priority_text_adjust' },
-                  '2'
-                )
-              )
-            ),
-            '\u86CB\u767D\u8CEA'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item_separator' },
-            ':'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item' },
-            _react2.default.createElement(
-              'span',
-              { className: 'sort_inspector' },
-              _react2.default.createElement('span', { className: 'sort_inspector_square background_fat_white' })
-            ),
-            '\u8102\u80AA'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item_separator' },
-            ':'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item' },
-            _react2.default.createElement(
-              'span',
-              { className: 'sort_inspector' },
-              _react2.default.createElement('span', { className: 'sort_inspector_square background_carb_black' })
-            ),
-            '\u78B3\u6C34\u5316\u5408\u7269'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item_separator' },
-            ':'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'sort_item' },
-            _react2.default.createElement(
-              'span',
-              { className: 'sort_inspector' },
-              _react2.default.createElement('span', { className: 'sort_inspector_square background_fiber_green' })
-            ),
-            '\u81B3\u98DF\u7E96\u7DAD'
-          )
+          { className: 'search_icon_notes' },
+          [['protein', '蛋白質'], ['fat', '脂肪'], ['carb', '碳水化合物'], ['fiber', '膳食纖維']].map(function (item) {
+            return _react2.default.createElement(SearchIconNote, { key: item[0], name: item[0], value: item[1] });
+          })
         ),
         _react2.default.createElement(
           'ul',
@@ -641,40 +561,39 @@ var Result = function (_React$Component2) {
           _react2.default.createElement(
             'div',
             { className: 'result_title' },
-            result.name,
             _react2.default.createElement(
               'span',
-              { className: 'result_title_note' },
+              { className: '_name' },
+              result.name
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '_note' },
               '100g'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '_note' },
+              Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1),
+              '\u5927\u5361'
             )
           ),
           _react2.default.createElement(
             'div',
-            null,
+            { span: true, className: 'result_items' },
             _react2.default.createElement(
               'span',
               { className: 'result_item' },
               _react2.default.createElement(
                 'span',
-                { className: 'result_item_indicator' },
-                _react2.default.createElement('span', { className: 'nutrition_icon_calories' })
-              ),
-              Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'result_item_separator' },
-              ':'
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'result_item' },
-              _react2.default.createElement(
-                'span',
-                { className: 'result_item_indicator' },
+                { className: '_icon' },
                 _react2.default.createElement('span', { className: 'nutrition_icon_protein' })
               ),
-              Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)
+              _react2.default.createElement(
+                'span',
+                { className: '_value' },
+                Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)
+              )
             ),
             _react2.default.createElement(
               'span',
@@ -686,10 +605,14 @@ var Result = function (_React$Component2) {
               { className: 'result_item' },
               _react2.default.createElement(
                 'span',
-                { className: 'result_item_indicator' },
+                { className: '_icon' },
                 _react2.default.createElement('span', { className: 'nutrition_icon_fat' })
               ),
-              Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)
+              _react2.default.createElement(
+                'span',
+                { className: '_value' },
+                Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)
+              )
             ),
             _react2.default.createElement(
               'span',
@@ -701,25 +624,26 @@ var Result = function (_React$Component2) {
               { className: 'result_item' },
               _react2.default.createElement(
                 'span',
-                { className: 'result_item_indicator' },
+                { className: '_icon' },
                 _react2.default.createElement('span', { className: 'nutrition_icon_carb' })
               ),
-              Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'result_item_separator' },
-              ':'
-            ),
-            _react2.default.createElement(
-              'span',
-              { className: 'result_item' },
               _react2.default.createElement(
                 'span',
-                { className: 'result_item_indicator' },
-                _react2.default.createElement('span', { className: 'nutrition_icon_fiber' })
-              ),
-              Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)
+                { className: '_value' },
+                Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1),
+                Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1) > 0 ? _react2.default.createElement(
+                  'span',
+                  { className: '_note' },
+                  '(',
+                  Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1),
+                  _react2.default.createElement(
+                    'span',
+                    { className: '_icon' },
+                    _react2.default.createElement('span', { className: 'nutrition_icon_fiber' })
+                  ),
+                  ')'
+                ) : null
+              )
             )
           )
         )
@@ -731,7 +655,7 @@ var Result = function (_React$Component2) {
 }(_react2.default.Component);
 
 },{"./search_sorting.jsx":4,"json-query":6,"react":236,"react-router":38,"round10":237}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -739,7 +663,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -761,12 +685,108 @@ var SearchSorting = function (_React$Component) {
   }
 
   _createClass(SearchSorting, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
-        'SearchSorting'
+        "div",
+        { className: "sort_pannel" },
+        "\u6392\u5E8F\uFF1A",
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item sort_item_first" },
+          _react2.default.createElement(
+            "span",
+            { className: "sort_inspector" },
+            _react2.default.createElement(
+              "svg",
+              { width: "20px", height: "14px", className: "svg_calories_red" },
+              _react2.default.createElement("polygon", { id: "sort_inspector", points: "9.5,0 10.5,0 19,13 18,14 2,14 1,13 " })
+            ),
+            _react2.default.createElement(
+              "span",
+              { className: "sort_inspector_priority" },
+              _react2.default.createElement(
+                "font",
+                { className: "sort_inspector_priority_text_adjust" },
+                "1"
+              )
+            )
+          ),
+          "\u71B1\u91CF"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item_separator" },
+          ":"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item" },
+          _react2.default.createElement(
+            "span",
+            { className: "sort_inspector" },
+            _react2.default.createElement(
+              "svg",
+              { width: "20px", height: "14px", className: "svg_protein_yellow" },
+              _react2.default.createElement("polygon", { id: "sort_inspector", points: "9.5,0 10.5,0 19,13 18,14 2,14 1,13 " })
+            ),
+            _react2.default.createElement(
+              "span",
+              { className: "sort_inspector_priority" },
+              _react2.default.createElement(
+                "font",
+                { className: "sort_inspector_priority_text_adjust" },
+                "2"
+              )
+            )
+          ),
+          "\u86CB\u767D\u8CEA"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item_separator" },
+          ":"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item" },
+          _react2.default.createElement(
+            "span",
+            { className: "sort_inspector" },
+            _react2.default.createElement("span", { className: "sort_inspector_square background_fat_white" })
+          ),
+          "\u8102\u80AA"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item_separator" },
+          ":"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item" },
+          _react2.default.createElement(
+            "span",
+            { className: "sort_inspector" },
+            _react2.default.createElement("span", { className: "sort_inspector_square background_carb_black" })
+          ),
+          "\u78B3\u6C34\u5316\u5408\u7269"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item_separator" },
+          ":"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "sort_item" },
+          _react2.default.createElement(
+            "span",
+            { className: "sort_inspector" },
+            _react2.default.createElement("span", { className: "sort_inspector_square background_fiber_green" })
+          ),
+          "\u81B3\u98DF\u7E96\u7DAD"
+        )
       );
     }
   }]);

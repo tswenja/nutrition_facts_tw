@@ -2,7 +2,7 @@
   text-size-adjust: none;
 }
 
-body {
+html, body {
   background-color: #4A4A4A;
   font-size: 15px;
   letter-spacing: 0.05em;
@@ -29,10 +29,16 @@ body {
 .background_calories_red {
   background-color: #DE4B11;
 }
+.background_calories {
+  background-color: #DE4B11;
+}
 .svg_protein_yellow {
   fill: #F8E71C;
 }
 .background_protein_yellow {
+  background-color: #F8E71C;
+}
+.background_protein {
   background-color: #F8E71C;
 }
 .svg_fiber_green {
@@ -41,16 +47,25 @@ body {
 .background_fiber_green {
   background-color: #6AB812;
 }
+.background_fiber {
+  background-color: #6AB812;
+}
 .svg_fat_white {
   fill: #FFFFFF;
 }
 .background_fat_white {
   background-color: #FFFFFF;
 }
+.background_fat {
+  background-color: #FFFFFF;
+}
 .svg_carb_black {
   fill: #000000;
 }
 .background_carb_black {
+  background-color: #000000;
+}
+.background_carb {
   background-color: #000000;
 }
 
@@ -165,6 +180,25 @@ body {
   padding-left: 16px;
 }
 
+.search_icon_notes {
+  margin: 40px 50px;
+}
+.search_icon_note {
+  margin-right: 44px;
+}
+.search_icon_note > ._icon {
+  display: inline-block;
+  margin-right: 8px;
+  width: 6px;
+  height: 6px;
+  vertical-align: middle;
+  border-radius: 1px;
+  box-shadow: 1px 1px 0 0 rgba(0,0,0,0.2);
+}
+.search_icon_note > ._value {
+  font-size: 13px;
+}
+
 .sort_pannel {
   margin: 24px 16px;
 }
@@ -211,29 +245,51 @@ body {
     display: block;
   }
   .result_title {
-    font-size: 1.4em;
-    font-family: "Songti TC";
     color: inherit;
-    text-decoration: none;
   }
-  .result_title_note {
-    margin-left: 10px;
-    font-size: 0.618em;
-    font-family: "Verdana";
-    color: #808080;
+    .result_title > ._name {
+      vertical-align: middle;
+      font-size: 1.4em;
+      font-family: "Songti TC";
+    }
+    .result_title > ._note {
+      margin-left: 15px;
+      vertical-align: middle;
+      font-size: 0.867rem;
+      font-weight: 300;
+    }
+  .result_items {
+    padding-left: 10px;
   }
   .result_item, .result_item_separator {
     display: inline-block;
     position: relative;
     padding-top: 40px;
-    font-family: "Georgia";
-    font-size: 1.267em;
+    margin-top: 5px;
   }
-    .result_item_indicator {
+    .result_item>._icon {
       position: absolute;
       top: 15px;
       width: 100%;
       text-align: center;
+    }
+    .result_item>._value, .result_item_separator {
+      font-family: serif;
+      font-size: 1.133em;
+      display: inline-block;
+      line-height: 1.133em;
+    }
+    .result_item>._value>._note {
+      position: absolute;
+      width: 10em;
+      padding-left: 0.5em;
+      font-size: 0.9em;
+      vertical-align: middle;
+    }
+    .result_item>._value>._note>._icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.2em;
     }
     .result_item_separator {
       margin: 0 30px;

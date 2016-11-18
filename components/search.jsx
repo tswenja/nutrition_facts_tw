@@ -5,6 +5,15 @@ require('round10').polyfill()
 // children compoents
 import SearchSorting from './search_sorting.jsx'
 
+const SearchIconNote = function(props) {
+  return (
+    <span className="search_icon_note">
+      <span className={`_icon background_${props.name}`}></span>
+      <span className="_value">{props.value}</span>
+    </span>
+  )
+}
+
 export default class Search extends React.Component {
   render() {
     var results = null
@@ -33,53 +42,9 @@ export default class Search extends React.Component {
           </form>
         </div>
 
-        <div className="sort_pannel">
-          排序：
-          <span className="sort_item sort_item_first">
-            <span className="sort_inspector">
-              <svg width="20px" height="14px" className="svg_calories_red">
-                <polygon id="sort_inspector" points="9.5,0 10.5,0 19,13 18,14 2,14 1,13 "></polygon>
-              </svg>
-              <span className="sort_inspector_priority"><font className="sort_inspector_priority_text_adjust">1</font></span>
-            </span>
-            熱量
-          </span>
-          <span className="sort_item_separator">:</span>
-
-          <span className="sort_item">
-            <span className="sort_inspector">
-              <svg width="20px" height="14px" className="svg_protein_yellow">
-                <polygon id="sort_inspector" points="9.5,0 10.5,0 19,13 18,14 2,14 1,13 "></polygon>
-              </svg>
-              <span className="sort_inspector_priority"><font className="sort_inspector_priority_text_adjust">2</font></span>
-            </span>
-            蛋白質
-          </span>
-          <span className="sort_item_separator">:</span>
-
-          <span className="sort_item">
-            <span className="sort_inspector">
-              <span className="sort_inspector_square background_fat_white"></span>
-            </span>
-            脂肪
-          </span>
-          <span className="sort_item_separator">:</span>
-
-          <span className="sort_item">
-            <span className="sort_inspector">
-              <span className="sort_inspector_square background_carb_black"></span>
-            </span>
-            碳水化合物
-          </span>
-          <span className="sort_item_separator">:</span>
-
-          <span className="sort_item">
-            <span className="sort_inspector">
-              <span className="sort_inspector_square background_fiber_green"></span>
-            </span>
-            膳食纖維
-          </span>
-
+        <div className="search_icon_notes">
+          {[['protein','蛋白質'],['fat','脂肪'],['carb','碳水化合物'],['fiber','膳食纖維']].
+            map((item)=> <SearchIconNote key={item[0]} name={item[0]} value={item[1]} />)}
         </div>
 
         <ul>
@@ -108,44 +73,35 @@ class Result extends React.Component {
       <div className="result">
         <Link to={`${rootPath}/foods/${result.uniNumber}`} className="nude_link result_link">
           <div className="result_title">
-            {result.name}
-            <span className="result_title_note">100g</span>
+            <span className="_name">{result.name}</span>
+            <span className="_note">100g</span>
+            <span className="_note">{Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)}大卡</span>
           </div>
 
-          <div>
+          <div span className="result_items">
             <span className="result_item">
-              <span className="result_item_indicator">
-                <span className="nutrition_icon_calories"></span>
-              </span>
-              {Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)}
+              <span className="_icon"><span className="nutrition_icon_protein"></span></span>
+              <span className="_value">{Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}</span>
             </span>
             <span className="result_item_separator">:</span>
             <span className="result_item">
-              <span className="result_item_indicator">
-                <span className="nutrition_icon_protein"></span>
-              </span>
-              {Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}
+              <span className="_icon"><span className="nutrition_icon_fat"></span></span>
+              <span className="_value">{Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}</span>
             </span>
             <span className="result_item_separator">:</span>
             <span className="result_item">
-              <span className="result_item_indicator">
-                <span className="nutrition_icon_fat"></span>
+              <span className="_icon"><span className="nutrition_icon_carb"></span></span>
+              <span className="_value">
+                {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}
+                {(Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1) > 0) ?
+                  <span className="_note">
+                    ({Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)}
+                    <span className="_icon"><span className="nutrition_icon_fiber"></span></span>)
+                  </span>
+                  :
+                  null
+                }
               </span>
-              {Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}
-            </span>
-            <span className="result_item_separator">:</span>
-            <span className="result_item">
-              <span className="result_item_indicator">
-                <span className="nutrition_icon_carb"></span>
-              </span>
-              {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}
-            </span>
-            <span className="result_item_separator">:</span>
-            <span className="result_item">
-              <span className="result_item_indicator">
-                <span className="nutrition_icon_fiber"></span>
-              </span>
-              {Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)}
             </span>
           </div>
         </Link>
