@@ -81,26 +81,25 @@ class Result extends React.Component {
           <div span className="result_items">
             <span className="result_item">
               <span className="_icon"><span className="nutrition_icon_protein"></span></span>
-              <span className="_value">{Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}</span>
+              <span className="_value">{Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}<font className="result_unit">g</font></span>
             </span>
             <span className="result_item_separator">:</span>
             <span className="result_item">
               <span className="_icon"><span className="nutrition_icon_fat"></span></span>
-              <span className="_value">{Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}</span>
+              <span className="_value">{Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}<font className="result_unit">g</font></span>
             </span>
             <span className="result_item_separator">:</span>
             <span className="result_item">
               <span className="_icon"><span className="nutrition_icon_carb"></span></span>
               <span className="_value">
-                {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}
-                {(Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1) > 0) ?
-                  <span className="_note">
-                    ({Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1)}
-                    <span className="_icon"><span className="nutrition_icon_fiber"></span></span>)
-                  </span>
-                  :
-                  null
-                }
+                {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}<font className="result_unit">g</font>
+                {((fiberAmount)=> {
+                  if (fiberAmount > 0) return (
+                    <span className="_note">
+                      (<span className="_icon"><span className="nutrition_icon_fiber"></span></span>{fiberAmount}<font className="result_unit">g</font>)
+                    </span>
+                  )
+                })(Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1))}
               </span>
             </span>
           </div>

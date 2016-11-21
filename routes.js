@@ -592,7 +592,12 @@ var Result = function (_React$Component2) {
               _react2.default.createElement(
                 'span',
                 { className: '_value' },
-                Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)
+                Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1),
+                _react2.default.createElement(
+                  'font',
+                  { className: 'result_unit' },
+                  'g'
+                )
               )
             ),
             _react2.default.createElement(
@@ -611,7 +616,12 @@ var Result = function (_React$Component2) {
               _react2.default.createElement(
                 'span',
                 { className: '_value' },
-                Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)
+                Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1),
+                _react2.default.createElement(
+                  'font',
+                  { className: 'result_unit' },
+                  'g'
+                )
               )
             ),
             _react2.default.createElement(
@@ -631,18 +641,30 @@ var Result = function (_React$Component2) {
                 'span',
                 { className: '_value' },
                 Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1),
-                Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1) > 0 ? _react2.default.createElement(
-                  'span',
-                  { className: '_note' },
-                  '(',
-                  Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1),
-                  _react2.default.createElement(
+                _react2.default.createElement(
+                  'font',
+                  { className: 'result_unit' },
+                  'g'
+                ),
+                function (fiberAmount) {
+                  if (fiberAmount > 0) return _react2.default.createElement(
                     'span',
-                    { className: '_icon' },
-                    _react2.default.createElement('span', { className: 'nutrition_icon_fiber' })
-                  ),
-                  ')'
-                ) : null
+                    { className: '_note' },
+                    '(',
+                    _react2.default.createElement(
+                      'span',
+                      { className: '_icon' },
+                      _react2.default.createElement('span', { className: 'nutrition_icon_fiber' })
+                    ),
+                    fiberAmount,
+                    _react2.default.createElement(
+                      'font',
+                      { className: 'result_unit' },
+                      'g'
+                    ),
+                    ')'
+                  );
+                }(Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1))
               )
             )
           )
