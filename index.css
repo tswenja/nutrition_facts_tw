@@ -181,9 +181,11 @@ html, body {
 }
 
 .search_icon_notes {
-  margin: 40px 50px;
+  margin: 26px 50px;
+  line-height: 2em;
 }
 .search_icon_note {
+  display: inline-block;
   margin-right: 44px;
 }
 .search_icon_note > ._icon {
@@ -240,6 +242,9 @@ html, body {
 
 .result {
   margin: 80px 50px;
+}
+.result:first-child {
+  margin-top: 50px;
 }
   .result_link {
     display: block;
