@@ -74,34 +74,43 @@ class Result extends React.Component {
         <Link to={`${rootPath}/foods/${result.uniNumber}`} className="nude_link result__link">
           <div className="result__title">
             <span className="result__title__name">{result.name}</span>
-            <span className="result__title__note">100g</span>
-            <span className="result__title__note">{Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)}大卡</span>
+            <span className="style__inline-block">
+              <span className="result__title__note">100g</span>
+              <span className="result__title__note">{Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1)}大卡</span>
+            </span>
           </div>
 
           <div span className="result__items">
+
             <span className="result__item">
               <span className="result__item__icon"><span className="nutrition_icon_protein"></span></span>
               <span className="result__item__value">{Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1)}<font className="result__unit">g</font></span>
             </span>
+
             <span className="result__items__separator">:</span>
+
             <span className="result__item">
               <span className="result__item__icon"><span className="nutrition_icon_fat"></span></span>
               <span className="result__item__value">{Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1)}<font className="result__unit">g</font></span>
             </span>
+
             <span className="result__items__separator">:</span>
+
             <span className="result__item">
               <span className="result__item__icon"><span className="nutrition_icon_carb"></span></span>
               <span className="result__item__value">
                 {Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1)}<font className="result__unit">g</font>
-                {((fiberAmount)=> {
-                  if (fiberAmount > 0) return (
-                    <span className="result__item__note">
-                      (<span className="result__item__note__icon"><span className="nutrition_icon_fiber"></span></span>{fiberAmount}<font className="result__unit">g</font>)
-                    </span>
-                  )
-                })(Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1))}
               </span>
+
+              {((fiberAmount)=> {
+                if (fiberAmount > 0) return (
+                  <span className="result__item__note">
+                    (<span className="result__item__note__icon"><span className="nutrition_icon_fiber"></span></span>{fiberAmount}<font className="result__unit">g</font>)
+                  </span>
+                )
+              })(Math.round10(result.nutritionItems.get('膳食纖維').amountPer100g, -1))}
             </span>
+
           </div>
         </Link>
       </div>

@@ -2,6 +2,10 @@
   text-size-adjust: none;
 }
 
+.style__inline-block {
+  display: inline-block;
+}
+
 html, body {
   background-color: #4A4A4A;
   font-size: 15px;
@@ -181,7 +185,7 @@ html, body {
 }
 
 .search_icon_notes {
-  margin: 26px 50px;
+  margin: 26px 6.2%;
   line-height: 2em;
 }
 .search_icon_note {
@@ -241,13 +245,14 @@ html, body {
     }
 
 .result {
-  margin: 50px 50px 80px;
+  margin: 50px 6.2% 80px;
 }
   .result__link {
     display: block;
   }
   .result__title {
     color: inherit;
+    line-height: 2em;
   }
     .result__title__name {
       vertical-align: middle;
@@ -255,10 +260,12 @@ html, body {
       font-family: "Songti TC";
     }
     .result__title__note {
-      margin-left: 15px;
       vertical-align: middle;
       font-size: 0.867rem;
       font-weight: 300;
+    }
+    .result__title__name, .result__title__note {
+      margin-right: 15px;
     }
   .result__items {
     padding-left: 10px;
@@ -285,18 +292,29 @@ html, body {
       font-family: serif;
       font-size: 1.133em;
       display: inline-block;
-      line-height: 1.133em;
+      line-height: 1em;
     }
     .result__item__note {
+      font-family: serif;
       position: absolute;
       width: 10em;
-      padding-left: 0.5em;
-      font-size: 0.9em;
-      vertical-align: middle;
+      vertical-align: baseline;
     }
+      @media screen and (min-width: 406px) {
+        .result__item__note {
+          padding-left: 0.5em;
+        }
+      }
+      @media screen and (max-width: 405px) {
+        .result__item__note {
+          right: 0;
+          text-align: right;
+          bottom: -1.62em;
+        }
+      }
     .result__item__note__icon {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: text-top;
       margin-right: 0.2em;
     }
     .result__items__separator {
