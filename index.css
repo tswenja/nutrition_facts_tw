@@ -241,10 +241,7 @@ html, body {
     }
 
 .result {
-  margin: 80px 50px;
-}
-.result:first-child {
-  margin-top: 50px;
+  margin: 50px 50px 80px;
 }
   .result_link {
     display: block;
