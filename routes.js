@@ -127,23 +127,23 @@ var FoodDetails = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'span',
-                { className: 'food_title' },
+                { className: 'food__title' },
                 obj.name,
                 _react2.default.createElement(
                   'span',
-                  { className: 'food_title_en' },
+                  { className: 'food__title--en' },
                   obj.enName
                 )
               )
             ),
             _react2.default.createElement(
               'div',
-              { className: 'food_description food_description_head' },
+              { className: 'food__description food__description--head' },
               obj.nickName
             ),
             _react2.default.createElement(
               'div',
-              { className: 'food_description' },
+              { className: 'food__description' },
               obj.contents
             ),
             _react2.default.createElement(
@@ -151,32 +151,32 @@ var FoodDetails = function (_React$Component) {
               { className: 'nutrition_facts_table' },
               _react2.default.createElement(
                 'div',
-                { className: 'nutrition_facts_header' },
+                { className: 'nutrition_facts__header' },
                 _react2.default.createElement(
                   'span',
-                  { className: 'nutrition_facts_cell_amount' },
+                  { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                   '\u6BCF100\u514B'
                 ),
                 _react2.default.createElement(
                   'span',
-                  { className: 'nutrition_facts_cell_ratio' },
+                  { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' },
                   '\u71DF\u990A\u6BD4\u4F8B'
                 )
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'nutrition_facts_header' },
-                _react2.default.createElement('hr', { className: 'nutrition_facts_header_separator' })
+                { className: 'nutrition_facts__header' },
+                _react2.default.createElement('hr', { className: 'nutrition_facts__header_separator' })
               ),
               _react2.default.createElement(
                 'ul',
                 null,
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement(
                       'span',
                       { className: 'nutrition_facts_item_icon' },
@@ -195,14 +195,14 @@ var FoodDetails = function (_React$Component) {
                       obj.nutritionItems.get('熱量').unit
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts_cell_ratio' })
+                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement(
                       'span',
                       { className: 'nutrition_facts_item_icon' },
@@ -223,17 +223,17 @@ var FoodDetails = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_ratio' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' },
                     Math.round10(obj.nutritionItems.get('粗脂肪').caloriesPer100g / obj.nutritionItems.get('熱量').amountPer100g * 100, -1),
                     '%'
                   )
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -248,14 +248,14 @@ var FoodDetails = function (_React$Component) {
                       obj.nutritionItems.get('脂肪酸S總量').unit
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts_cell_ratio' })
+                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -270,14 +270,14 @@ var FoodDetails = function (_React$Component) {
                       obj.nutritionItems.get('脂肪酸M總量').unit
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts_cell_ratio' })
+                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -292,14 +292,14 @@ var FoodDetails = function (_React$Component) {
                       obj.nutritionItems.get('脂肪酸P總量').unit
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts_cell_ratio' })
+                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement(
                       'span',
                       { className: 'nutrition_facts_item_icon' },
@@ -320,17 +320,17 @@ var FoodDetails = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_ratio' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' },
                     Math.round10(obj.nutritionItems.get('總碳水化合物').caloriesPer100g / obj.nutritionItems.get('熱量').amountPer100g * 100, -1),
                     '%'
                   )
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -345,14 +345,14 @@ var FoodDetails = function (_React$Component) {
                       obj.nutritionItems.get('膳食纖維').unit
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts_cell_ratio' })
+                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -367,14 +367,14 @@ var FoodDetails = function (_React$Component) {
                       obj.nutritionItems.get('糖質總量').unit
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts_cell_ratio' })
+                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'nutrition_facts_row' },
+                  { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
                     _react2.default.createElement(
                       'span',
                       { className: 'nutrition_facts_item_icon' },
@@ -395,7 +395,7 @@ var FoodDetails = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts_cell_ratio' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' },
                     Math.round10(obj.nutritionItems.get('粗蛋白').caloriesPer100g / obj.nutritionItems.get('熱量').amountPer100g * 100, -1),
                     '%'
                   )
@@ -452,10 +452,10 @@ var SearchIconNote = function SearchIconNote(props) {
   return _react2.default.createElement(
     'span',
     { className: 'search_icon_note' },
-    _react2.default.createElement('span', { className: '_icon background_' + props.name }),
+    _react2.default.createElement('span', { className: 'search_icon_note__icon background_' + props.name }),
     _react2.default.createElement(
       'span',
-      { className: '_value' },
+      { className: 'search_icon_note__value' },
       props.value
     )
   );
@@ -557,109 +557,109 @@ var Result = function (_React$Component2) {
         { className: 'result' },
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: rootPath + '/foods/' + result.uniNumber, className: 'nude_link result_link' },
+          { to: rootPath + '/foods/' + result.uniNumber, className: 'nude_link result__link' },
           _react2.default.createElement(
             'div',
-            { className: 'result_title' },
+            { className: 'result__title' },
             _react2.default.createElement(
               'span',
-              { className: '_name' },
+              { className: 'result__title__name' },
               result.name
             ),
             _react2.default.createElement(
               'span',
-              { className: '_note' },
+              { className: 'result__title__note' },
               '100g'
             ),
             _react2.default.createElement(
               'span',
-              { className: '_note' },
+              { className: 'result__title__note' },
               Math.round10(result.nutritionItems.get('熱量').amountPer100g, -1),
               '\u5927\u5361'
             )
           ),
           _react2.default.createElement(
             'div',
-            { span: true, className: 'result_items' },
+            { span: true, className: 'result__items' },
             _react2.default.createElement(
               'span',
-              { className: 'result_item' },
+              { className: 'result__item' },
               _react2.default.createElement(
                 'span',
-                { className: '_icon' },
+                { className: 'result__item__icon' },
                 _react2.default.createElement('span', { className: 'nutrition_icon_protein' })
               ),
               _react2.default.createElement(
                 'span',
-                { className: '_value' },
+                { className: 'result__item__value' },
                 Math.round10(result.nutritionItems.get('粗蛋白').amountPer100g, -1),
                 _react2.default.createElement(
                   'font',
-                  { className: 'result_unit' },
+                  { className: 'result__unit' },
                   'g'
                 )
               )
             ),
             _react2.default.createElement(
               'span',
-              { className: 'result_item_separator' },
+              { className: 'result__items__separator' },
               ':'
             ),
             _react2.default.createElement(
               'span',
-              { className: 'result_item' },
+              { className: 'result__item' },
               _react2.default.createElement(
                 'span',
-                { className: '_icon' },
+                { className: 'result__item__icon' },
                 _react2.default.createElement('span', { className: 'nutrition_icon_fat' })
               ),
               _react2.default.createElement(
                 'span',
-                { className: '_value' },
+                { className: 'result__item__value' },
                 Math.round10(result.nutritionItems.get('粗脂肪').amountPer100g, -1),
                 _react2.default.createElement(
                   'font',
-                  { className: 'result_unit' },
+                  { className: 'result__unit' },
                   'g'
                 )
               )
             ),
             _react2.default.createElement(
               'span',
-              { className: 'result_item_separator' },
+              { className: 'result__items__separator' },
               ':'
             ),
             _react2.default.createElement(
               'span',
-              { className: 'result_item' },
+              { className: 'result__item' },
               _react2.default.createElement(
                 'span',
-                { className: '_icon' },
+                { className: 'result__item__icon' },
                 _react2.default.createElement('span', { className: 'nutrition_icon_carb' })
               ),
               _react2.default.createElement(
                 'span',
-                { className: '_value' },
+                { className: 'result__item__value' },
                 Math.round10(result.nutritionItems.get('總碳水化合物').amountPer100g, -1),
                 _react2.default.createElement(
                   'font',
-                  { className: 'result_unit' },
+                  { className: 'result__unit' },
                   'g'
                 ),
                 function (fiberAmount) {
                   if (fiberAmount > 0) return _react2.default.createElement(
                     'span',
-                    { className: '_note' },
+                    { className: 'result__item__note' },
                     '(',
                     _react2.default.createElement(
                       'span',
-                      { className: '_icon' },
+                      { className: 'result__item__note__icon' },
                       _react2.default.createElement('span', { className: 'nutrition_icon_fiber' })
                     ),
                     fiberAmount,
                     _react2.default.createElement(
                       'font',
-                      { className: 'result_unit' },
+                      { className: 'result__unit' },
                       'g'
                     ),
                     ')'
