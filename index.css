@@ -148,11 +148,13 @@ html, body {
 
 .main_container {
   background-color: #E5E6DF;
-  padding: 2px 0;
   width: 97%;
   max-width: 814px;
   margin: auto;
-  margin-top: 88px;
+}
+.main_container__margin {
+  margin-top: 10.8%;
+  padding: 2px 0;
 }
 
 .placeholder_loading {

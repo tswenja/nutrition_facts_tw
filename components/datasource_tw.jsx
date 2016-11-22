@@ -21,7 +21,9 @@ export default class DatasourceTW extends React.Component {
     return (
       <div>
         <div className="main_container">
-          {contents}
+          <div className="main_container__margin">
+            {contents}
+          </div>
         </div>
 
         <div className="data_source">

@@ -53,7 +53,11 @@ var DatasourceTW = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'main_container' },
-          contents
+          _react2.default.createElement(
+            'div',
+            { className: 'main_container__margin' },
+            contents
+          )
         ),
         _react2.default.createElement(
           'div',
