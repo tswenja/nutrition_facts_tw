@@ -130,7 +130,7 @@ var FoodDetails = function (_React$Component) {
               'h1',
               null,
               _react2.default.createElement(
-                'span',
+                'div',
                 { className: 'food__title' },
                 obj.name,
                 _react2.default.createElement(
@@ -237,7 +237,7 @@ var FoodDetails = function (_React$Component) {
                   { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount nutrition_facts__cell--indent1' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -251,15 +251,14 @@ var FoodDetails = function (_React$Component) {
                       ' ',
                       obj.nutritionItems.get('脂肪酸S總量').unit
                     )
-                  ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
+                  )
                 ),
                 _react2.default.createElement(
                   'li',
                   { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount nutrition_facts__cell--indent1' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -273,15 +272,14 @@ var FoodDetails = function (_React$Component) {
                       ' ',
                       obj.nutritionItems.get('脂肪酸M總量').unit
                     )
-                  ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
+                  )
                 ),
                 _react2.default.createElement(
                   'li',
                   { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount nutrition_facts__cell--indent1' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -295,8 +293,7 @@ var FoodDetails = function (_React$Component) {
                       ' ',
                       obj.nutritionItems.get('脂肪酸P總量').unit
                     )
-                  ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
+                  )
                 ),
                 _react2.default.createElement(
                   'li',
@@ -334,7 +331,7 @@ var FoodDetails = function (_React$Component) {
                   { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount nutrition_facts__cell--indent1' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -348,15 +345,14 @@ var FoodDetails = function (_React$Component) {
                       ' ',
                       obj.nutritionItems.get('膳食纖維').unit
                     )
-                  ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
+                  )
                 ),
                 _react2.default.createElement(
                   'li',
                   { className: 'nutrition_facts__row' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount' },
+                    { className: 'nutrition_facts__cell nutrition_facts__cell--amount nutrition_facts__cell--indent1' },
                     _react2.default.createElement('span', { className: 'nutrition_facts_item_icon' }),
                     _react2.default.createElement(
                       'span',
@@ -370,8 +366,7 @@ var FoodDetails = function (_React$Component) {
                       ' ',
                       obj.nutritionItems.get('糖質總量').unit
                     )
-                  ),
-                  _react2.default.createElement('div', { className: 'nutrition_facts__cell nutrition_facts__cell--ratio' })
+                  )
                 ),
                 _react2.default.createElement(
                   'li',
