@@ -23,7 +23,12 @@ export default class Search extends React.Component {
         `foods[**][*:contains(${keyword})]`,
         {
           data: {foods: this.props.foodModel.all()},
-          locals:{contains: function(input,keyword) { if ((input.name + input.nickName + input.enName).toLowerCase().indexOf(keyword.toLowerCase()) >= 0) return input }}
+          locals:{
+            contains: function(input,keyword) {
+              if ((input.name + input.nickName + input.enName + input.contents).toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
+                return input
+            }
+          }
         }
       ).value
     }

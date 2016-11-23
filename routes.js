@@ -479,9 +479,11 @@ var Search = function (_React$Component) {
         var keyword = this.props.params.keyword;
         results = (0, _jsonQuery2.default)('foods[**][*:contains(' + keyword + ')]', {
           data: { foods: this.props.foodModel.all() },
-          locals: { contains: function contains(input, keyword) {
-              if ((input.name + input.nickName + input.enName).toLowerCase().indexOf(keyword.toLowerCase()) >= 0) return input;
-            } }
+          locals: {
+            contains: function contains(input, keyword) {
+              if ((input.name + input.nickName + input.enName + input.contents).toLowerCase().indexOf(keyword.toLowerCase()) >= 0) return input;
+            }
+          }
         }).value;
       }
       return _react2.default.createElement(
