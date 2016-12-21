@@ -43,7 +43,7 @@ export default class Search extends React.Component {
             keywordNode.blur()
           }}>
             搜尋：
-            <input type="text" name="keyword" className="nude_input_text" defaultValue={this.props.params.keyword} />
+            <input type="text" name="keyword" className="nude_input_text" defaultValue={this.props.params.keyword} placeholder="請輸入食物名稱" />
           </form>
         </div>
 

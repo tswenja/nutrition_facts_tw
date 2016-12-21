@@ -501,7 +501,7 @@ var Search = function (_React$Component) {
                 keywordNode.blur();
               } },
             '\u641C\u5C0B\uFF1A',
-            _react2.default.createElement('input', { type: 'text', name: 'keyword', className: 'nude_input_text', defaultValue: this.props.params.keyword })
+            _react2.default.createElement('input', { type: 'text', name: 'keyword', className: 'nude_input_text', defaultValue: this.props.params.keyword, placeholder: '\u8ACB\u8F38\u5165\u98DF\u7269\u540D\u7A31' })
           )
         ),
         _react2.default.createElement(
